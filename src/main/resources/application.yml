@@ -1,0 +1,34 @@
+server:
+  port: 9011
+logging:
+  level:
+   root: info  
+  file:
+    path: logs/one_time_pin_serivce/
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/wallet_development?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: mpesab2c
+    password: password123
+
+  jpa:
+    show-sql: true
+    properties:
+      dialect: org.hibernate.dialect.MYSQL5Dialect
+    hibernate:
+      ddl-auto: update
+
+otp:
+  config:
+    expireMins: 5
+    minRange : 10000
+    maxRange: 90000
+    successStatus: 1
+    failedStatus : 0
+    expiredStatus: 2
+    secretKey : otpengine
+    salt : otpengine123
+    smsWebService: http://localhost:9001/API/SMS_API/smsWrapper.php
+    smsMethod: processRequest

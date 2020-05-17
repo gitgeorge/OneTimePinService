@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8081
+      label: latest
+      profile: dev
+  application:
+    name: onetimepinservice
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
